@@ -1,0 +1,72 @@
+mininet@mininet-vm:~/PartA$ sudo python start.py
+** Creating Quagga network topology
+** Starting the network
+** Using Mininet Extended (MiniNExT) Handler
+*** Creating network
+*** Adding controller
+*** Adding hosts:
+H1 H2 R1 R2 R3 R4
+*** Adding switches:
+
+*** Adding links:
+(H1, R1) (H2, R4) (R1, R2) (R1, R3) (R2, R4) (R3, R4)
+*** Configuring hosts
+H1 H2 R1 R2 R3 R4
+*** Starting host services
+H1: Quagga (OK)
+H2: Quagga (OK)
+R1: Quagga (OK)
+R2: Quagga (OK)
+R3: Quagga (OK)
+R4: Quagga (OK)
+*** Starting controller
+*** Starting 0 switches
+
+** Dumping host connections
+H1 H1-eth0:R1-eth0
+H2 H2-eth0:R4-eth0
+R1 R1-eth0:H1-eth0 R1-eth1:R2-eth0 R1-eth2:R3-eth0
+R2 R2-eth0:R1-eth1 R2-eth1:R4-eth1
+R3 R3-eth0:R1-eth2 R3-eth1:R4-eth2
+R4 R4-eth0:H2-eth0 R4-eth1:R2-eth1 R4-eth2:R3-eth1
+** Testing network connectivity
+H1 -> X X X X X
+H2 -> X X X X X
+R1 -> *** Error: could not parse ping output: Do you want to ping broadcast? Then -b
+
+X X X X X
+R2 -> X X X X X
+R3 -> X X X X X
+R4 -> X X X X X
+*** Results: 100% dropped (0/30 received)
+** Dumping host processes
+*** H1 : ('ps aux',)
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         1  0.0  0.1  12652  1448 pts/1    S    23:55   0:00 bash -ms mininet:H1
+root        30  0.0  0.1  18688  1288 pts/1    R    23:55   0:00 ps aux
+*** H2 : ('ps aux',)
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         1  0.0  0.1  12652  1444 pts/1    S    23:55   0:00 bash -ms mininet:H2
+root        30  0.0  0.1  18688  1288 pts/1    R    23:55   0:00 ps aux
+*** R1 : ('ps aux',)
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         1  0.0  0.1  12652  1448 pts/1    S    23:55   0:00 bash -ms mininet:R1
+root        40  0.0  0.1  18688  1288 pts/1    R    23:55   0:00 ps aux
+*** R2 : ('ps aux',)
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         1  0.0  0.1  12652  1444 pts/1    S    23:55   0:00 bash -ms mininet:R2
+root        35  0.0  0.1  18688  1288 pts/1    R    23:55   0:00 ps aux
+*** R3 : ('ps aux',)
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         1  0.0  0.1  12652  1444 pts/1    S    23:55   0:00 bash -ms mininet:R3
+root        35  0.0  0.1  18688  1288 pts/1    R    23:55   0:00 ps aux
+*** R4 : ('ps aux',)
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         1  0.0  0.1  12652  1444 pts/1    S    23:55   0:00 bash -ms mininet:R4
+root        40  0.0  0.1  18688  1288 pts/1    R    23:55   0:00 ps aux
+** Running CLI
+*** Starting CLI:
+mininext> nodes
+available nodes are:
+H1 H2 R1 R2 R3 R4 c0
+mininext>
